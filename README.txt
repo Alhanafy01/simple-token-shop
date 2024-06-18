@@ -1,28 +1,44 @@
-REMIX DEFAULT WORKSPACE
+This project implements a basic token and token shop system on the blockchain, utilizing the following concepts:
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+    ERC20 Tokens: The project creates a custom ERC20 token that can be bought and sold.
+    Oracles: The project uses Chainlink Data Feeds to retrieve reliable off-chain data, potentially for determining token prices. (Optional: Specify the data being retrieved if applicable)
+    Token Shop: Users can interact with the token shop to purchase the ERC20 token using native currency (e.g., ETH).
 
-This workspace contains 3 directories:
+Learning Source:
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+This code was developed based on learnings from the Chainlink Bootcamp 2024.
 
-SCRIPTS
+Project Structure:
 
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
+    The main contract files are:
+        Token.sol: Defines the ERC20 token behavior.
+        TokenShop.sol: Handles token purchase functionality and interacts with the Token contract and potentially Chainlink Data Feeds.
+    Additional files might be present for helper functions or configuration (depending on your implementation).
 
-For the deployment of any other contract, just update the contract's name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
+Running the Project:
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+    Prerequisites:
+        A local development environment like Remix IDE or a full node setup (e.g., Ganache).
+        Basic understanding of Solidity and ERC20 standards.
+        (Optional, if using Chainlink Data Feeds) Familiarity with Chainlink oracles and data feed integration.
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
+    Deployment:
+        Deploy the Token.sol contract first.
+        During deployment of TokenShop.sol, provide the address of the deployed Token contract.
+        (Optional) If using Chainlink Data Feeds, configure the address of the appropriate data feed in the TokenShop.sol constructor.
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+    Interaction:
+        Use your development environment's functionality to interact with the deployed contracts and purchase tokens.
+
+Disclaimer:
+
+This is a basic project designed for learning purposes. Thorough security audits and testing are essential before deploying such a project on a mainnet.
+
+Further Development:
+
+    Implement additional features for the token shop (e.g., selling, setting prices).
+    Integrate more complex functionalities using Chainlink Data Feeds (e.g., dynamic pricing based on external data).
+
+Contribution:
+
+Feel free to fork this repository and contribute your improvements!
